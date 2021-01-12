@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <ul>
+        <li>
+            <a href="/about/">Go to About</a>
+        </li>
+        <li>
+            <a href="/home/">Go to Recommendation</a>
+        </li>
+        <li>
+            <a href="/home/first-5-books">I am New</a>
+        </li>
+{% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+            <p>You are not logged in</p>
+        <li>
+            <a href="/home/login">Login/register</a>
+        </li>
+        {% endif %}
+    </ul>
+{% endblock %}
